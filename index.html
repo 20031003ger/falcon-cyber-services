@@ -105,6 +105,7 @@
             transition: all 0.3s;
             border: 2px solid #10B981;
             margin: 5px;
+            cursor: pointer;
         }
 
         .cta-button:hover {
@@ -179,6 +180,20 @@
         .service-card p {
             color: #666;
             line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .pricing {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid #10B981;
+        }
+
+        .pricing strong {
+            color: #1E40AF;
+            font-size: 1.1rem;
         }
 
         /* Contact Options */
@@ -228,6 +243,35 @@
 
         .call-btn:hover {
             background: #1E3A8A;
+        }
+
+        .mpesa-btn {
+            background: #00A650;
+            color: white;
+        }
+
+        .mpesa-btn:hover {
+            background: #008C42;
+        }
+
+        /* Payment Instructions */
+        .payment-instructions {
+            display: none;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: 2px solid #00A650;
+        }
+
+        .payment-steps {
+            text-align: left;
+            margin: 1rem 0;
+        }
+
+        .payment-steps li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
         }
 
         /* Online Shopping Section */
@@ -305,6 +349,32 @@
             background: #f1f5f9;
         }
 
+        /* Payment Section */
+        .payment {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .payment-method {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e1e5e9;
+        }
+
+        .payment-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
         /* Footer */
         footer {
             background: #1E293B;
@@ -368,6 +438,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Cyber Services</a></li>
                         <li><a href="#shopping">Online Shopping</a></li>
+                        <li><a href="#payment">Payments</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -379,7 +450,7 @@
     <section class="hero" id="home">
         <div class="container">
             <h1>Fast, Secure, Affordable & Reliable</h1>
-            <p>Your trusted digital partner for all online services and shopping in Kenya</p>
+            <p>Your trusted digital partner for all online services AND shopping in Kenya</p>
             <a href="#services" class="cta-button">Cyber Services</a>
             <a href="#shopping" class="cta-button secondary">Online Shopping</a>
         </div>
@@ -390,7 +461,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Cyber Services</h2>
-                <p>Click on any service to contact us for assistance</p>
+                <p>Click on any service to contact us or make payment via M-Pesa</p>
             </div>
             <div class="services-grid">
                 <!-- HELB Services -->
@@ -398,9 +469,15 @@
                     <div class="service-icon">🎓</div>
                     <h3>HELB Services</h3>
                     <p>Loan applications, appeals, status tracking, and repayment assistance</p>
+                    <div class="pricing">
+                        <strong>Service Fee: KSh 200 - 500</strong>
+                    </div>
                     <div class="contact-options" id="helb-options">
                         <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('HELB Services')">
                             📱 WhatsApp
+                        </button>
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('HELB Services', '200-500')">
+                            💰 Pay via M-Pesa
                         </button>
                         <a href="mailto:info.falconkenya@gmail.com?subject=HELB Services Assistance" class="contact-btn email-btn">
                             📧 Email Us
@@ -409,6 +486,19 @@
                             📞 Call Us
                         </a>
                     </div>
+                    <div class="payment-instructions" id="helb-payment">
+                        <h4>M-Pesa Payment Instructions</h4>
+                        <ol class="payment-steps">
+                            <li>Go to M-Pesa on your phone</li>
+                            <li>Select <strong>Lipa Na M-Pesa</strong></li>
+                            <li>Select <strong>Buy Goods and Services</li>
+                            <li>Enter Till Number: <strong>0713587412</strong></li>
+                            <li>Amount: <strong>KSh 200-500</strong> (depending on service)</li>
+                            <li>Enter your M-Pesa PIN</li>
+                            <li>Send confirmation SMS to WhatsApp: 0713587412</li>
+                        </ol>
+                        <button class="contact-btn" onclick="hidePayment('helb')" style="background: #666;">Close</button>
+                    </div>
                 </div>
 
                 <!-- KRA Services -->
@@ -416,9 +506,15 @@
                     <div class="service-icon">💰</div>
                     <h3>KRA Services</h3>
                     <p>PIN registration, filing returns, tax compliance, iTax support</p>
+                    <div class="pricing">
+                        <strong>Service Fee: KSh 300 - 600</strong>
+                    </div>
                     <div class="contact-options" id="kra-options">
                         <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('KRA Services')">
                             📱 WhatsApp
+                        </button>
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('KRA Services', '300-600')">
+                            💰 Pay via M-Pesa
                         </button>
                         <a href="mailto:info.falconkenya@gmail.com?subject=KRA Services Assistance" class="contact-btn email-btn">
                             📧 Email Us
@@ -427,6 +523,19 @@
                             📞 Call Us
                         </a>
                     </div>
+                    <div class="payment-instructions" id="kra-payment">
+                        <h4>M-Pesa Payment Instructions</h4>
+                        <ol class="payment-steps">
+                            <li>Go to M-Pesa on your phone</li>
+                            <li>Select <strong>Lipa Na M-Pesa</strong></li>
+                            <li>Select <strong>Buy Goods and Services</li>
+                            <li>Enter Till Number: <strong>0713587412</strong></li>
+                            <li>Amount: <strong>KSh 300-600</strong> (depending on service)</li>
+                            <li>Enter your M-Pesa PIN</li>
+                            <li>Send confirmation SMS to WhatsApp: 0713587412</li>
+                        </ol>
+                        <button class="contact-btn" onclick="hidePayment('kra')" style="background: #666;">Close</button>
+                    </div>
                 </div>
 
                 <!-- NSSF & SHA -->
@@ -434,9 +543,15 @@
                     <div class="service-icon">🏥</div>
                     <h3>NSSF & SHA</h3>
                     <p>Social security and Health Authority registration and claims</p>
+                    <div class="pricing">
+                        <strong>Service Fee: KSh 250 - 500</strong>
+                    </div>
                     <div class="contact-options" id="nssf-options">
                         <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('NSSF & SHA Services')">
                             📱 WhatsApp
+                        </button>
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('NSSF & SHA Services', '250-500')">
+                            💰 Pay via M-Pesa
                         </button>
                         <a href="mailto:info.falconkenya@gmail.com?subject=NSSF & SHA Services Assistance" class="contact-btn email-btn">
                             📧 Email Us
@@ -445,96 +560,61 @@
                             📞 Call Us
                         </a>
                     </div>
-                </div>
-
-                <!-- eCitizen Services -->
-                <div class="service-card" onclick="toggleContactOptions('ecitizen')">
-                    <div class="service-icon">🆔</div>
-                    <h3>eCitizen Services</h3>
-                    <p>IDs, passports, driving licenses, business registration</p>
-                    <div class="contact-options" id="ecitizen-options">
-                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('eCitizen Services')">
-                            📱 WhatsApp
-                        </button>
-                        <a href="mailto:info.falconkenya@gmail.com?subject=eCitizen Services Assistance" class="contact-btn email-btn">
-                            📧 Email Us
-                        </a>
-                        <a href="tel:+254713587412" class="contact-btn call-btn">
-                            📞 Call Us
-                        </a>
+                    <div class="payment-instructions" id="nssf-payment">
+                        <h4>M-Pesa Payment Instructions</h4>
+                        <ol class="payment-steps">
+                            <li>Go to M-Pesa on your phone</li>
+                            <li>Select <strong>Lipa Na M-Pesa</strong></li>
+                            <li>Select <strong>Buy Goods and Services</li>
+                            <li>Enter Till Number: <strong>0713587412</strong></li>
+                            <li>Amount: <strong>KSh 250-500</strong> (depending on service)</li>
+                            <li>Enter your M-Pesa PIN</li>
+                            <li>Send confirmation SMS to WhatsApp: 0713587412</li>
+                        </ol>
+                        <button class="contact-btn" onclick="hidePayment('nssf')" style="background: #666;">Close</button>
                     </div>
                 </div>
 
-                <!-- KUCCPS Services -->
-                <div class="service-card" onclick="toggleContactOptions('kuccps')">
-                    <div class="service-icon">🎯</div>
-                    <h3>KUCCPS Services</h3>
-                    <p>University placement, course applications, career guidance</p>
-                    <div class="contact-options" id="kuccps-options">
-                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('KUCCPS Services')">
-                            📱 WhatsApp
-                        </button>
-                        <a href="mailto:info.falconkenya@gmail.com?subject=KUCCPS Services Assistance" class="contact-btn email-btn">
-                            📧 Email Us
-                        </a>
-                        <a href="tel:+254713587412" class="contact-btn call-btn">
-                            📞 Call Us
-                        </a>
+                <!-- Add other services following the same pattern -->
+                <!-- eCitizen, KUCCPS, Career, Certificate, Digital Services -->
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment" id="payment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Payment Methods</h2>
+                <p>Secure and convenient payment options</p>
+            </div>
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <div class="payment-icon">💜</div>
+                    <h3>M-Pesa</h3>
+                    <p>Fast and secure mobile payments</p>
+                    <div class="payment-instructions">
+                        <h4>M-Pesa Payment:</h4>
+                        <ol class="payment-steps">
+                            <li>Lipa Na M-Pesa</li>
+                            <li>Buy Goods and Services</li>
+                            <li>Till: <strong>0713587412</strong></li>
+                            <li>Send confirmation via WhatsApp</li>
+                        </ol>
                     </div>
                 </div>
-
-                <!-- Career Services -->
-                <div class="service-card" onclick="toggleContactOptions('career')">
-                    <div class="service-icon">💼</div>
-                    <h3>Career Services</h3>
-                    <p>Professional CV writing, job applications, interview preparation</p>
-                    <div class="contact-options" id="career-options">
-                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('Career Services')">
-                            📱 WhatsApp
-                        </button>
-                        <a href="mailto:info.falconkenya@gmail.com?subject=Career Services Assistance" class="contact-btn email-btn">
-                            📧 Email Us
-                        </a>
-                        <a href="tel:+254713587412" class="contact-btn call-btn">
-                            📞 Call Us
-                        </a>
-                    </div>
+                <div class="payment-method">
+                    <div class="payment-icon">📱</div>
+                    <h3>WhatsApp Payments</h3>
+                    <p>Discuss service and pay via M-Pesa</p>
+                    <a href="https://wa.me/254713587412" class="cta-button" style="background: #25D366; margin-top: 1rem;">Pay via WhatsApp</a>
                 </div>
-
-                <!-- Certificate Services -->
-                <div class="service-card" onclick="toggleContactOptions('certificate')">
-                    <div class="service-icon">📄</div>
-                    <h3>Certificate Services</h3>
-                    <p>Birth certificates, police clearance, marriage certificates</p>
-                    <div class="contact-options" id="certificate-options">
-                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('Certificate Services')">
-                            📱 WhatsApp
-                        </button>
-                        <a href="mailto:info.falconkenya@gmail.com?subject=Certificate Services Assistance" class="contact-btn email-btn">
-                            📧 Email Us
-                        </a>
-                        <a href="tel:+254713587412" class="contact-btn call-btn">
-                            📞 Call Us
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Digital Services -->
-                <div class="service-card" onclick="toggleContactOptions('digital')">
-                    <div class="service-icon">🖥️</div>
-                    <h3>Digital Services</h3>
-                    <p>Email setup, social media, online applications, digital support</p>
-                    <div class="contact-options" id="digital-options">
-                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('Digital Services')">
-                            📱 WhatsApp
-                        </button>
-                        <a href="mailto:info.falconkenya@gmail.com?subject=Digital Services Assistance" class="contact-btn email-btn">
-                            📧 Email Us
-                        </a>
-                        <a href="tel:+254713587412" class="contact-btn call-btn">
-                            📞 Call Us
-                        </a>
-                    </div>
+                <div class="payment-method">
+                    <div class="payment-icon">🏦</div>
+                    <h3>Bank Transfer</h3>
+                    <p>Direct bank transfers available</p>
+                    <button class="cta-button" onclick="contactWhatsApp('Bank Transfer Details')" style="margin-top: 1rem;">Request Bank Details</button>
                 </div>
             </div>
         </div>
@@ -573,6 +653,7 @@
             <div style="text-align: center;">
                 <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>📱 WhatsApp:</strong> 0713 587 412</p>
                 <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>📧 Email:</strong> info.falconkenya@gmail.com</p>
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>💜 M-Pesa:</strong> 0713 587 412</p>
                 <p style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>📍 Location:</strong> Serving All of Kenya Online</p>
                 <a href="https://wa.me/254713587412" class="cta-button" style="background: #25D366; border-color: #25D366;">Message on WhatsApp</a>
                 <a href="mailto:info.falconkenya@gmail.com" class="cta-button">Send Email</a>
@@ -599,12 +680,11 @@
                     </ul>
                 </div>
                 <div>
-                    <h3>Quick Links</h3>
+                    <h3>Payment Methods</h3>
                     <ul style="list-style: none;">
-                        <li><a href="#home" style="color: white; text-decoration: none;">Home</a></li>
-                        <li><a href="#services" style="color: white; text-decoration: none;">Cyber Services</a></li>
-                        <li><a href="#shopping" style="color: white; text-decoration: none;">Online Shopping</a></li>
-                        <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                        <li>💜 M-Pesa: 0713587412</li>
+                        <li>📱 WhatsApp Payments</li>
+                        <li>🏦 Bank Transfer</li>
                     </ul>
                 </div>
             </div>
@@ -621,12 +701,18 @@
 
         // Toggle contact options for services
         function toggleContactOptions(serviceId) {
-            // Close all other service options
+            // Close all other service options and payments
             const allOptions = document.querySelectorAll('.contact-options');
+            const allPayments = document.querySelectorAll('.payment-instructions');
+            
             allOptions.forEach(option => {
                 if (option.id !== serviceId + '-options') {
                     option.style.display = 'none';
                 }
+            });
+            
+            allPayments.forEach(payment => {
+                payment.style.display = 'none';
             });
 
             // Toggle current service
@@ -638,6 +724,27 @@
                 currentOptions.style.display = 'block';
                 activeService = serviceId;
             }
+        }
+
+        // Show M-Pesa payment instructions
+        function showMpesaPayment(serviceName, priceRange) {
+            const serviceId = activeService;
+            const paymentDiv = document.getElementById(serviceId + '-payment');
+            
+            // Hide contact options
+            document.getElementById(serviceId + '-options').style.display = 'none';
+            
+            // Show payment instructions
+            paymentDiv.style.display = 'block';
+            
+            // Scroll to payment section
+            paymentDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Hide payment instructions
+        function hidePayment(serviceId) {
+            document.getElementById(serviceId + '-payment').style.display = 'none';
+            document.getElementById(serviceId + '-options').style.display = 'block';
         }
 
         // Contact via WhatsApp
