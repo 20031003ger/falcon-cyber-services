@@ -107,6 +107,7 @@
             transition: all 0.3s;
             border: 2px solid #10B981;
             margin: 5px;
+            cursor: pointer;
         }
 
         .cta-button:hover {
@@ -159,6 +160,7 @@
             text-align: center;
             transition: all 0.3s;
             border: 1px solid #e1e5e9;
+            cursor: pointer;
         }
 
         .service-card:hover {
@@ -180,6 +182,78 @@
         .service-card p {
             color: #666;
             line-height: 1.6;
+        }
+
+        /* Contact Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal h3 {
+            color: #1E40AF;
+            margin-bottom: 1rem;
+        }
+
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .contact-btn {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .email-btn {
+            background: #EA4335;
+            color: white;
+        }
+
+        .call-btn {
+            background: #1E40AF;
+            color: white;
+        }
+
+        .close-modal {
+            background: #666;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
         }
 
         /* Online Shopping Section */
@@ -251,100 +325,6 @@
             width: 100%;
         }
 
-        /* Shopping Platforms */
-        .platforms {
-            padding: 80px 0;
-            background: #f1f5f9;
-        }
-
-        .platforms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .platform-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .platform-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .jumia-card {
-            border-top: 4px solid #FF6B00;
-        }
-
-        .aliexpress-card {
-            border-top: 4px solid #FF6C00;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .step-card {
-            text-align: center;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .step-number {
-            background: #1E40AF;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-weight: bold;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .contact-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
         /* Footer */
         footer {
             background: #1E293B;
@@ -408,7 +388,6 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Cyber Services</a></li>
                         <li><a href="#shopping">Online Shopping</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -431,45 +410,45 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Cyber Services</h2>
-                <p>Comprehensive digital solutions for all your government and personal needs</p>
+                <p>Click on any service to contact us for assistance</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal('HELB Services')">
                     <div class="service-icon">🎓</div>
                     <h3>HELB Services</h3>
                     <p>Loan applications, appeals, status tracking, and repayment assistance for students and graduates</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal('KRA Services')">
                     <div class="service-icon">💰</div>
                     <h3>KRA Services</h3>
                     <p>PIN registration, filing returns, tax compliance, iTax support, and all revenue services</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal('NSSF & SHA Services')">
                     <div class="service-icon">🏥</div>
                     <h3>NSSF & SHA</h3>
                     <p>Social security and Social Health Authority registration, contributions, and claims</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal('eCitizen Services')">
                     <div class="service-icon">🆔</div>
                     <h3>eCitizen Services</h3>
                     <p>IDs, passports, driving licenses, business registration, and all government documents</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal('KUCCPS Services')">
                     <div class="service-icon">🎯</div>
                     <h3>KUCCPS Services</h3>
                     <p>University placement, course applications, revision of choices, and career guidance</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal('Career Services')">
                     <div class="service-icon">💼</div>
                     <h3>Career Services</h3>
                     <p>Professional CV writing, job applications, LinkedIn optimization, and interview preparation</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal('Certificate Services')">
                     <div class="service-icon">📄</div>
                     <h3>Certificate Services</h3>
                     <p>Birth certificates, police clearance, marriage certificates, and all official documents</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal('Digital Services')">
                     <div class="service-icon">🖥️</div>
                     <h3>Digital Services</h3>
                     <p>Email setup, social media management, online applications, and digital platform support</p>
@@ -501,123 +480,19 @@
         </div>
     </section>
 
-    <!-- Shopping Platforms -->
-    <section class="platforms">
-        <div class="container">
-            <div class="section-title">
-                <h2>Shop From Major Platforms</h2>
-                <p>We handle the entire shopping process for you</p>
-            </div>
-            
-            <div class="platforms-grid">
-                <div class="platform-card jumia-card">
-                    <div class="platform-icon">🛍️</div>
-                    <h3>Jumia Kenya</h3>
-                    <p style="margin: 1rem 0; color: #666;">Fast delivery within Kenya (2-7 days)</p>
-                    <div style="background: #FFF0E6; padding: 15px; border-radius: 5px; margin: 1rem 0;">
-                        <strong>Popular Categories:</strong>
-                        <div>📱 Phones & Tablets</div>
-                        <div>💻 Electronics</div>
-                        <div>👟 Fashion</div>
-                        <div>🏠 Home & Kitchen</div>
-                    </div>
-                    <a href="https://wa.me/254713587412?text=Hi!%20I%20want%20to%20shop%20from%20Jumia%20Kenya"
-                       class="cta-button" style="background: #FF6B00; border-color: #FF6B00; margin-top: 1rem;">
-                       Shop on Jumia
-                    </a>
-                </div>
-                
-                <div class="platform-card aliexpress-card">
-                    <div class="platform-icon">🌍</div>
-                    <h3>AliExpress</h3>
-                    <p style="margin: 1rem 0; color: #666;">International products (15-30 days delivery)</p>
-                    <div style="background: #FFF0E6; padding: 15px; border-radius: 5px; margin: 1rem 0;">
-                        <strong>Popular Categories:</strong>
-                        <div>📦 Electronics</div>
-                        <div>👗 Fashion</div>
-                        <div>💎 Jewelry</div>
-                        <div>🏠 Home Decor</div>
-                    </div>
-                    <a href="https://wa.me/254713587412?text=Hi!%20I%20want%20to%20shop%20from%20AliExpress"
-                       class="cta-button" style="background: #FF6C00; border-color: #FF6C00; margin-top: 1rem;">
-                       Shop on AliExpress
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-title">
-                <h2>How Our Service Works</h2>
-                <p>Simple process for both cyber services and online shopping</p>
-            </div>
-            
-            <div class="steps">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>Contact Us</h3>
-                    <p>Reach out via WhatsApp or email with your request</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>Get Quote</h3>
-                    <p>We provide service fees or product prices with shipping</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Make Payment</h3>
-                    <p>Pay via M-Pesa, bank transfer, or other methods</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h3>We Deliver</h3>
-                    <p>We process your service or order and deliver results</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="services" id="contact" style="background: #f1f5f9;">
         <div class="container">
             <div class="section-title">
-                <h2>Contact Us Today</h2>
-                <p>Get started with any of our services</p>
+                <h2>Contact Us</h2>
+                <p>Get in touch for any service or inquiry</p>
             </div>
-            
-            <div class="contact-options">
-                <div class="contact-card">
-                    <div class="contact-icon">📱</div>
-                    <h3>WhatsApp</h3>
-                    <p>Fast responses, available 24/7</p>
-                    <p style="margin: 1rem 0; font-size: 1.2rem;"><strong>0713 587 412</strong></p>
-                    <a href="https://wa.me/254713587412" class="cta-button" style="background: #25D366; border-color: #25D366;">
-                        Message Now
-                    </a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <p>Professional and detailed responses</p>
-                    <p style="margin: 1rem 0; font-size: 1.2rem;"><strong>info.falconkenya@gmail.com</strong></p>
-                    <a href="mailto:info.falconkenya@gmail.com" class="cta-button">
-                        Send Email
-                    </a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">🛒</div>
-                    <h3>Quick Order</h3>
-                    <p>Ready to order a product?</p>
-                    <a href="https://wa.me/254713587412?text=Hi!%20I%20want%20to%20order%20a%20product%3A%0A%0AProduct%3A%20%5BProduct%20name%5D%0ABudget%3A%20%5BYour%20budget%5D%0ALocation%3A%20%5BYour%20location%5D" 
-                       class="cta-button secondary">
-                        Order Product
-                    </a>
-                </div>
+            <div style="text-align: center;">
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>📱 WhatsApp:</strong> 0713 587 412</p>
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>📧 Email:</strong> info.falconkenya@gmail.com</p>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>📍 Location:</strong> Serving All of Kenya Online</p>
+                <a href="https://wa.me/254713587412" class="cta-button" style="background: #25D366; border-color: #25D366;">Message on WhatsApp</a>
+                <a href="mailto:info.falconkenya@gmail.com" class="cta-button">Send Email</a>
             </div>
         </div>
     </section>
@@ -657,13 +532,62 @@
         </div>
     </footer>
 
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <h3 id="modalServiceName">Service</h3>
+            <p>How would you like to contact us for this service?</p>
+            
+            <div class="contact-options">
+                <a href="#" class="contact-btn whatsapp-btn" id="whatsappBtn">
+                    📱 WhatsApp
+                </a>
+                <a href="mailto:info.falconkenya@gmail.com" class="contact-btn email-btn">
+                    📧 Email Us
+                </a>
+                <a href="tel:+254713587412" class="contact-btn call-btn">
+                    📞 Call Us
+                </a>
+            </div>
+            
+            <button class="close-modal" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
     <script>
         let selectedPlatform = 'jumia';
+        let currentService = '';
 
+        // Service Modal Functions
+        function openServiceModal(serviceName) {
+            currentService = serviceName;
+            document.getElementById('modalServiceName').textContent = serviceName;
+            
+            // Set WhatsApp message with service name
+            const whatsappMessage = `Hi! I need help with ${serviceName}. Please assist me.`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            document.getElementById('whatsappBtn').href = `https://wa.me/254713587412?text=${encodedMessage}`;
+            
+            // Show modal
+            document.getElementById('contactModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Shopping Functions
         function selectPlatform(platform) {
             selectedPlatform = platform;
             
-            // Update button styles
             document.querySelectorAll('.platform-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
@@ -702,18 +626,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'linear-gradient(135deg, #1E40AF, #3B82F6)';
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #1E40AF, #3B82F6)';
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
         });
     </script>
 </body>
