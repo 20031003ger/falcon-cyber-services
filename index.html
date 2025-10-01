@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon's Online Cyber Services - Digital Solutions & Online Shopping Kenya</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1E40AF, #3B82F6);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #10B981;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #10B981;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 64, 175, 0.9), rgba(30, 64, 175, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #10B981;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid #10B981;
+            margin: 5px;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            border-color: white;
+        }
+
+        .cta-button.secondary {
+            background: #FF6B00;
+            border-color: #FF6B00;
+        }
+
+        .cta-button.secondary:hover {
+            background: transparent;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1E40AF;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #e1e5e9;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #1E40AF;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Online Shopping Section */
+        .shopping {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #FF6B00, #FF8C00);
+            color: white;
+        }
+
+        .search-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 600px;
+            margin: 0 auto;
+            color: #333;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .platform-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .platform-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .jumia-btn {
+            border-color: #FF6B00;
+            color: #FF6B00;
+        }
+
+        .aliexpress-btn {
+            border-color: #FF6C00;
+            color: #FF6C00;
+        }
+
+        .platform-btn.active {
+            background: #FF6B00;
+            color: white;
+        }
+
+        .search-btn {
+            background: #10B981;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Shopping Platforms */
+        .platforms {
+            padding: 80px 0;
+            background: #f1f5f9;
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .platform-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .jumia-card {
+            border-top: 4px solid #FF6B00;
+        }
+
+        .aliexpress-card {
+            border-top: 4px solid #FF6C00;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .step-number {
+            background: #1E40AF;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1E293B;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+                margin-top: 100px;
+            }
+
+            .platform-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Falcon's <span>Cyber Services</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Cyber Services</a></li>
+                        <li><a href="#shopping">Online Shopping</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Fast, Secure, Affordable & Reliable</h1>
+            <p>Your trusted digital partner for all online services AND shopping in Kenya</p>
+            <a href="#services" class="cta-button">Cyber Services</a>
+            <a href="#shopping" class="cta-button secondary">Online Shopping</a>
+        </div>
+    </section>
+
+    <!-- Cyber Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Cyber Services</h2>
+                <p>Comprehensive digital solutions for all your government and personal needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3>HELB Services</h3>
+                    <p>Loan applications, appeals, status tracking, and repayment assistance for students and graduates</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>KRA Services</h3>
+                    <p>PIN registration, filing returns, tax compliance, iTax support, and all revenue services</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏥</div>
+                    <h3>NSSF & SHA</h3>
+                    <p>Social security and Social Health Authority registration, contributions, and claims</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🆔</div>
+                    <h3>eCitizen Services</h3>
+                    <p>IDs, passports, driving licenses, business registration, and all government documents</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>KUCCPS Services</h3>
+                    <p>University placement, course applications, revision of choices, and career guidance</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Career Services</h3>
+                    <p>Professional CV writing, job applications, LinkedIn optimization, and interview preparation</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📄</div>
+                    <h3>Certificate Services</h3>
+                    <p>Birth certificates, police clearance, marriage certificates, and all official documents</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🖥️</div>
+                    <h3>Digital Services</h3>
+                    <p>Email setup, social media management, online applications, and digital platform support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Shopping Section -->
+    <section class="shopping" id="shopping">
+        <div class="container">
+            <div class="section-title">
+                <h2>Online Shopping Service 🛒</h2>
+                <p>We source products from Jumia & AliExpress and deliver to your doorstep!</p>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="productSearch" placeholder="What product are you looking for? (e.g., smartphone, shoes, laptop...)">
+                
+                <div class="platform-buttons">
+                    <button class="platform-btn jumia-btn active" onclick="selectPlatform('jumia')">Jumia Kenya</button>
+                    <button class="platform-btn aliexpress-btn" onclick="selectPlatform('aliexpress')">AliExpress</button>
+                </div>
+                
+                <button class="search-btn" onclick="searchProduct()">
+                    🔍 Search & Get Price Quote
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Platforms -->
+    <section class="platforms">
+        <div class="container">
+            <div class="section-title">
+                <h2>Shop From Major Platforms</h2>
+                <p>We handle the entire shopping process for you</p>
+            </div>
+            
+            <div class="platforms-grid">
+                <div class="platform-card jumia-card">
+                    <div class="platform-icon">🛍️</div>
+                    <h3>Jumia Kenya</h3>
+                    <p style="margin: 1rem 0; color: #666;">Fast delivery within Kenya (2-7 days)</p>
+                    <div style="background: #FFF0E6; padding: 15px; border-radius: 5px; margin: 1rem 0;">
+                        <strong>Popular Categories:</strong>
+                        <div>📱 Phones & Tablets</div>
+                        <div>💻 Electronics</div>
+                        <div>👟 Fashion</div>
+                        <div>🏠 Home & Kitchen</div>
+                    </div>
+                    <a href="https://wa.me/254713587412?text=Hi!%20I%20want%20to%20shop%20from%20Jumia%20Kenya"
+                       class="cta-button" style="background: #FF6B00; border-color: #FF6B00; margin-top: 1rem;">
+                       Shop on Jumia
+                    </a>
+                </div>
+                
+                <div class="platform-card aliexpress-card">
+                    <div class="platform-icon">🌍</div>
+                    <h3>AliExpress</h3>
+                    <p style="margin: 1rem 0; color: #666;">International products (15-30 days delivery)</p>
+                    <div style="background: #FFF0E6; padding: 15px; border-radius: 5px; margin: 1rem 0;">
+                        <strong>Popular Categories:</strong>
+                        <div>📦 Electronics</div>
+                        <div>👗 Fashion</div>
+                        <div>💎 Jewelry</div>
+                        <div>🏠 Home Decor</div>
+                    </div>
+                    <a href="https://wa.me/254713587412?text=Hi!%20I%20want%20to%20shop%20from%20AliExpress"
+                       class="cta-button" style="background: #FF6C00; border-color: #FF6C00; margin-top: 1rem;">
+                       Shop on AliExpress
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Our Service Works</h2>
+                <p>Simple process for both cyber services and online shopping</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Contact Us</h3>
+                    <p>Reach out via WhatsApp or email with your request</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Get Quote</h3>
+                    <p>We provide service fees or product prices with shipping</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Make Payment</h3>
+                    <p>Pay via M-Pesa, bank transfer, or other methods</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>We Deliver</h3>
+                    <p>We process your service or order and deliver results</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us Today</h2>
+                <p>Get started with any of our services</p>
+            </div>
+            
+            <div class="contact-options">
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>WhatsApp</h3>
+                    <p>Fast responses, available 24/7</p>
+                    <p style="margin: 1rem 0; font-size: 1.2rem;"><strong>0713 587 412</strong></p>
+                    <a href="https://wa.me/254713587412" class="cta-button" style="background: #25D366; border-color: #25D366;">
+                        Message Now
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>Professional and detailed responses</p>
+                    <p style="margin: 1rem 0; font-size: 1.2rem;"><strong>info.falconkenya@gmail.com</strong></p>
+                    <a href="mailto:info.falconkenya@gmail.com" class="cta-button">
+                        Send Email
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">🛒</div>
+                    <h3>Quick Order</h3>
+                    <p>Ready to order a product?</p>
+                    <a href="https://wa.me/254713587412?text=Hi!%20I%20want%20to%20order%20a%20product%3A%0A%0AProduct%3A%20%5BProduct%20name%5D%0ABudget%3A%20%5BYour%20budget%5D%0ALocation%3A%20%5BYour%20location%5D" 
+                       class="cta-button secondary">
+                        Order Product
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Falcon's Cyber Services</h3>
+                    <p>Your trusted digital partner for all online services and shopping in Kenya. Fast, secure, and reliable services since 2024.</p>
+                </div>
+                <div>
+                    <h3>Our Services</h3>
+                    <ul style="list-style: none;">
+                        <li>🎓 HELB Services</li>
+                        <li>💰 KRA Services</li>
+                        <li>🏥 NSSF & SHA</li>
+                        <li>🆔 eCitizen Services</li>
+                        <li>🛒 Online Shopping</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#home" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="#services" style="color: white; text-decoration: none;">Cyber Services</a></li>
+                        <li><a href="#shopping" style="color: white; text-decoration: none;">Online Shopping</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Falcon's Online Cyber Services. All rights reserved. | Serving All of Kenya Online</p>
+                <p style="margin-top: 0.5rem; color: #9CA3AF;">Digital Solutions & Online Shopping - Your Trusted Partner in Kenya</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedPlatform = 'jumia';
+
+        function selectPlatform(platform) {
+            selectedPlatform = platform;
+            
+            // Update button styles
+            document.querySelectorAll('.platform-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (platform === 'jumia') {
+                document.querySelector('.jumia-btn').classList.add('active');
+            } else {
+                document.querySelector('.aliexpress-btn').classList.add('active');
+            }
+        }
+
+        function searchProduct() {
+            const searchTerm = document.getElementById('productSearch').value.trim();
+            
+            if (!searchTerm) {
+                alert('Please enter what product you are looking for');
+                return;
+            }
+
+            let message = `🛍️ PRODUCT SEARCH REQUEST\n\n`;
+            message += `🔍 Product: ${searchTerm}\n`;
+            message += `🏪 Platform: ${selectedPlatform.toUpperCase()}\n`;
+            message += `💰 My Budget: [Please specify your budget]\n`;
+            message += `📍 Delivery Location: [Your location in Kenya]\n\n`;
+            message += `Please find the best deals and send me price quotes with Kenya shipping costs!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/254713587412?text=${encodedMessage}`, '_blank');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, #1E40AF, #3B82F6)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1E40AF, #3B82F6)';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
