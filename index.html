@@ -14,20 +14,22 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: #e2e8f0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
         }
 
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, #1E40AF, #3B82F6);
+            background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%);
             color: white;
             padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
         .container {
@@ -46,10 +48,10 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-        }
-
-        .logo span {
-            color: #10B981;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         nav ul {
@@ -62,28 +64,49 @@
         }
 
         nav ul li a {
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
             font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
         }
 
         nav ul li a:hover {
-            color: #10B981;
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(30, 64, 175, 0.9), rgba(30, 64, 175, 0.8));
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(55, 48, 163, 0.9) 100%);
             color: white;
             padding: 150px 0 100px;
             text-align: center;
             margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.1;
+            z-index: -1;
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
@@ -92,40 +115,42 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            color: #cbd5e1;
         }
 
         .cta-button {
             display: inline-block;
-            background: #10B981;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
-            padding: 12px 30px;
+            padding: 14px 32px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 10px;
             font-weight: bold;
             transition: all 0.3s;
-            border: 2px solid #10B981;
-            margin: 5px;
+            border: none;
+            margin: 8px;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
         }
 
         .cta-button:hover {
-            background: transparent;
-            border-color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
         }
 
         .cta-button.secondary {
-            background: #FF6B00;
-            border-color: #FF6B00;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
         }
 
         .cta-button.secondary:hover {
-            background: transparent;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
         }
 
         /* Services Section */
         .services {
             padding: 80px 0;
-            background: white;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
 
         .section-title {
@@ -135,64 +160,84 @@
 
         .section-title h2 {
             font-size: 2.5rem;
-            color: #1E40AF;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
         }
 
         .section-title p {
-            color: #666;
+            color: #94a3b8;
             font-size: 1.1rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
-            background: white;
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
             text-align: center;
             transition: all 0.3s;
-            border: 1px solid #e1e5e9;
+            border: 1px solid #475569;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border-color: #10b981;
         }
 
         .service-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .service-card h3 {
-            color: #1E40AF;
+            color: #f1f5f9;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
 
         .service-card p {
-            color: #666;
+            color: #94a3b8;
             line-height: 1.6;
             margin-bottom: 1rem;
         }
 
         .pricing {
-            background: #f8f9fa;
+            background: rgba(16, 185, 129, 0.1);
             padding: 1rem;
-            border-radius: 5px;
+            border-radius: 10px;
             margin: 1rem 0;
-            border-left: 4px solid #10B981;
+            border-left: 4px solid #10b981;
         }
 
         .pricing strong {
-            color: #1E40AF;
+            color: #10b981;
             font-size: 1.1rem;
         }
 
@@ -201,103 +246,183 @@
             display: none;
             margin-top: 1rem;
             padding-top: 1rem;
-            border-top: 1px solid #e1e5e9;
+            border-top: 1px solid #475569;
         }
 
         .contact-btn {
             display: block;
             width: 100%;
-            padding: 12px;
-            margin: 5px 0;
+            padding: 14px;
+            margin: 8px 0;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
             text-align: center;
+            font-size: 0.95rem;
         }
 
         .whatsapp-btn {
-            background: #25D366;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
             color: white;
         }
 
         .whatsapp-btn:hover {
-            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
         }
 
         .email-btn {
-            background: #EA4335;
+            background: linear-gradient(135deg, #ea4335 0%, #d33426 100%);
             color: white;
         }
 
         .email-btn:hover {
-            background: #D33426;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(234, 67, 53, 0.4);
         }
 
         .call-btn {
-            background: #1E40AF;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             color: white;
         }
 
         .call-btn:hover {
-            background: #1E3A8A;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
         }
 
         .mpesa-btn {
-            background: #00A650;
+            background: linear-gradient(135deg, #00a650 0%, #008c42 100%);
             color: white;
         }
 
         .mpesa-btn:hover {
-            background: #008C42;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 166, 80, 0.4);
         }
 
         /* Payment Instructions */
         .payment-instructions {
             display: none;
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 2rem;
+            border-radius: 15px;
             margin-top: 1rem;
-            border: 2px solid #00A650;
+            border: 2px solid #00a650;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .payment-instructions h4 {
+            color: #00a650;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            text-align: center;
         }
 
         .payment-steps {
             text-align: left;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
+            color: #cbd5e1;
         }
 
         .payment-steps li {
-            margin: 0.5rem 0;
+            margin: 1rem 0;
             padding-left: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .phone-number {
+            background: rgba(0, 166, 80, 0.2);
+            padding: 12px;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+            border: 1px solid #00a650;
+        }
+
+        .phone-number strong {
+            color: #00a650;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }
+
+        /* M-Pesa Logo */
+        .mpesa-logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #00a650 0%, #008c42 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0, 166, 80, 0.4);
+        }
+
+        .mpesa-logo::before {
+            content: 'M-PESA';
+            font-family: Arial, sans-serif;
         }
 
         /* Online Shopping Section */
         .shopping {
             padding: 80px 0;
-            background: linear-gradient(135deg, #FF6B00, #FF8C00);
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
             color: white;
+            position: relative;
+        }
+
+        .shopping::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        .shopping .container {
+            position: relative;
+            z-index: 2;
         }
 
         .search-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             max-width: 600px;
             margin: 0 auto;
-            color: #333;
+            color: #e2e8f0;
+            border: 1px solid #475569;
         }
 
         .search-box input {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #e1e5e9;
-            border-radius: 5px;
+            padding: 16px;
+            border: 2px solid #475569;
+            border-radius: 10px;
             font-size: 1.1rem;
             margin-bottom: 1rem;
+            background: #334155;
+            color: #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
         }
 
         .platform-buttons {
@@ -308,78 +433,117 @@
 
         .platform-btn {
             flex: 1;
-            padding: 12px;
+            padding: 14px;
             border: 2px solid;
-            border-radius: 5px;
-            background: white;
+            border-radius: 10px;
+            background: transparent;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
+            color: #cbd5e1;
         }
 
         .jumia-btn {
-            border-color: #FF6B00;
-            color: #FF6B00;
+            border-color: #f59e0b;
+            color: #f59e0b;
         }
 
         .aliexpress-btn {
-            border-color: #FF6C00;
-            color: #FF6C00;
+            border-color: #ef4444;
+            color: #ef4444;
         }
 
         .platform-btn.active {
-            background: #FF6B00;
+            background: #f59e0b;
+            color: #1e293b;
+            border-color: #f59e0b;
+        }
+
+        .aliexpress-btn.active {
+            background: #ef4444;
             color: white;
+            border-color: #ef4444;
         }
 
         .search-btn {
-            background: #10B981;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 5px;
+            padding: 16px 32px;
+            border-radius: 10px;
             font-size: 1.1rem;
             cursor: pointer;
             width: 100%;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
         }
 
         /* Contact Section */
         .contact {
             padding: 80px 0;
-            background: #f1f5f9;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
 
         /* Payment Section */
         .payment {
             padding: 80px 0;
-            background: white;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
         }
 
         .payment-methods {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
         .payment-method {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
             text-align: center;
-            border: 2px solid #e1e5e9;
+            border: 1px solid #475569;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .payment-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border-color: #10b981;
         }
 
         .payment-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .payment-method h3 {
+            color: #f1f5f9;
             margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .payment-method p {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
         }
 
         /* Footer */
         footer {
-            background: #1E293B;
-            color: white;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
             padding: 3rem 0 1rem;
+            border-top: 1px solid #334155;
         }
 
         .footer-content {
@@ -392,7 +556,7 @@
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid #374151;
+            border-top: 1px solid #475569;
         }
 
         /* Responsive */
@@ -424,6 +588,10 @@
             .platform-buttons {
                 flex-direction: column;
             }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -450,7 +618,7 @@
     <section class="hero" id="home">
         <div class="container">
             <h1>Fast, Secure, Affordable & Reliable</h1>
-            <p>Your trusted digital partner for all online services AND shopping in Kenya</p>
+            <p>Your trusted digital partner for all online services and shopping in Kenya</p>
             <a href="#services" class="cta-button">Cyber Services</a>
             <a href="#shopping" class="cta-button secondary">Online Shopping</a>
         </div>
@@ -470,13 +638,13 @@
                     <h3>HELB Services</h3>
                     <p>Loan applications, appeals, status tracking, and repayment assistance</p>
                     <div class="pricing">
-                        <strong>Service Fee: KSh 200 - 500</strong>
+                        <strong>Service Fee: KSh 100 - 400</strong>
                     </div>
                     <div class="contact-options" id="helb-options">
                         <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('HELB Services')">
                             📱 WhatsApp
                         </button>
-                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('HELB Services', '200-500')">
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('HELB Services', '100-400')">
                             💰 Pay via M-Pesa
                         </button>
                         <a href="mailto:info.falconkenya@gmail.com?subject=HELB Services Assistance" class="contact-btn email-btn">
@@ -487,13 +655,17 @@
                         </a>
                     </div>
                     <div class="payment-instructions" id="helb-payment">
+                        <div class="mpesa-logo"></div>
                         <h4>M-Pesa Payment Instructions</h4>
+                        <div class="phone-number">
+                            <strong>0713 587 412</strong>
+                        </div>
                         <ol class="payment-steps">
                             <li>Go to M-Pesa on your phone</li>
                             <li>Select <strong>Lipa Na M-Pesa</strong></li>
-                            <li>Select <strong>Buy Goods and Services</li>
+                            <li>Select <strong>Send Money</strong></li>
                             <li>Enter Till Number: <strong>0713587412</strong></li>
-                            <li>Amount: <strong>KSh 200-500</strong> (depending on service)</li>
+                            <li>Amount: <strong>KSh 100-400</strong> (depending on service)</li>
                             <li>Enter your M-Pesa PIN</li>
                             <li>Send confirmation SMS to WhatsApp: 0713587412</li>
                         </ol>
@@ -507,13 +679,13 @@
                     <h3>KRA Services</h3>
                     <p>PIN registration, filing returns, tax compliance, iTax support</p>
                     <div class="pricing">
-                        <strong>Service Fee: KSh 300 - 600</strong>
+                        <strong>Service Fee: KSh 150 - 500</strong>
                     </div>
                     <div class="contact-options" id="kra-options">
                         <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('KRA Services')">
                             📱 WhatsApp
                         </button>
-                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('KRA Services', '300-600')">
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('KRA Services', '150-500')">
                             💰 Pay via M-Pesa
                         </button>
                         <a href="mailto:info.falconkenya@gmail.com?subject=KRA Services Assistance" class="contact-btn email-btn">
@@ -524,13 +696,17 @@
                         </a>
                     </div>
                     <div class="payment-instructions" id="kra-payment">
+                        <div class="mpesa-logo"></div>
                         <h4>M-Pesa Payment Instructions</h4>
+                        <div class="phone-number">
+                            <strong>0713 587 412</strong>
+                        </div>
                         <ol class="payment-steps">
                             <li>Go to M-Pesa on your phone</li>
                             <li>Select <strong>Lipa Na M-Pesa</strong></li>
-                            <li>Select <strong>Buy Goods and Services</li>
+                            <li>Select <strong>Send Money</strong></li>
                             <li>Enter Till Number: <strong>0713587412</strong></li>
-                            <li>Amount: <strong>KSh 300-600</strong> (depending on service)</li>
+                            <li>Amount: <strong>KSh 150-500</strong> (depending on service)</li>
                             <li>Enter your M-Pesa PIN</li>
                             <li>Send confirmation SMS to WhatsApp: 0713587412</li>
                         </ol>
@@ -544,13 +720,13 @@
                     <h3>NSSF & SHA</h3>
                     <p>Social security and Health Authority registration and claims</p>
                     <div class="pricing">
-                        <strong>Service Fee: KSh 250 - 500</strong>
+                        <strong>Service Fee: KSh 100 - 400</strong>
                     </div>
                     <div class="contact-options" id="nssf-options">
                         <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('NSSF & SHA Services')">
                             📱 WhatsApp
                         </button>
-                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('NSSF & SHA Services', '250-500')">
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('NSSF & SHA Services', '100-400')">
                             💰 Pay via M-Pesa
                         </button>
                         <a href="mailto:info.falconkenya@gmail.com?subject=NSSF & SHA Services Assistance" class="contact-btn email-btn">
@@ -561,13 +737,17 @@
                         </a>
                     </div>
                     <div class="payment-instructions" id="nssf-payment">
+                        <div class="mpesa-logo"></div>
                         <h4>M-Pesa Payment Instructions</h4>
+                        <div class="phone-number">
+                            <strong>0713 587 412</strong>
+                        </div>
                         <ol class="payment-steps">
                             <li>Go to M-Pesa on your phone</li>
                             <li>Select <strong>Lipa Na M-Pesa</strong></li>
-                            <li>Select <strong>Buy Goods and Services</li>
+                            <li>Select <strong>Send Money</strong></li>
                             <li>Enter Till Number: <strong>0713587412</strong></li>
-                            <li>Amount: <strong>KSh 250-500</strong> (depending on service)</li>
+                            <li>Amount: <strong>KSh 100-400</strong> (depending on service)</li>
                             <li>Enter your M-Pesa PIN</li>
                             <li>Send confirmation SMS to WhatsApp: 0713587412</li>
                         </ol>
@@ -575,9 +755,210 @@
                     </div>
                 </div>
 
-                <!-- Add other services following the same pattern -->
-                <!-- eCitizen, KUCCPS, Career, Certificate, Digital Services -->
-                
+                <!-- eCitizen Services -->
+                <div class="service-card" onclick="toggleContactOptions('ecitizen')">
+                    <div class="service-icon">🆔</div>
+                    <h3>eCitizen Services</h3>
+                    <p>IDs, passports, driving licenses, business registration</p>
+                    <div class="pricing">
+                        <strong>Service Fee: KSh 200 - 500</strong>
+                    </div>
+                    <div class="contact-options" id="ecitizen-options">
+                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('eCitizen Services')">
+                            📱 WhatsApp
+                        </button>
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('eCitizen Services', '200-500')">
+                            💰 Pay via M-Pesa
+                        </button>
+                        <a href="mailto:info.falconkenya@gmail.com?subject=eCitizen Services Assistance" class="contact-btn email-btn">
+                            📧 Email Us
+                        </a>
+                        <a href="tel:+254713587412" class="contact-btn call-btn">
+                            📞 Call Us
+                        </a>
+                    </div>
+                    <div class="payment-instructions" id="ecitizen-payment">
+                        <div class="mpesa-logo"></div>
+                        <h4>M-Pesa Payment Instructions</h4>
+                        <div class="phone-number">
+                            <strong>0713 587 412</strong>
+                        </div>
+                        <ol class="payment-steps">
+                            <li>Go to M-Pesa on your phone</li>
+                            <li>Select <strong>Lipa Na M-Pesa</strong></li>
+                            <li>Select <strong>Send Money</strong></li>
+                            <li>Enter Till Number: <strong>0713587412</strong></li>
+                            <li>Amount: <strong>KSh 200-500</strong> (depending on service)</li>
+                            <li>Enter your M-Pesa PIN</li>
+                            <li>Send confirmation SMS to WhatsApp: 0713587412</li>
+                        </ol>
+                        <button class="contact-btn" onclick="hidePayment('ecitizen')" style="background: #666;">Close</button>
+                    </div>
+                </div>
+
+                <!-- KUCCPS Services -->
+                <div class="service-card" onclick="toggleContactOptions('kuccps')">
+                    <div class="service-icon">🎯</div>
+                    <h3>KUCCPS Services</h3>
+                    <p>University placement, course applications, career guidance</p>
+                    <div class="pricing">
+                        <strong>Service Fee: KSh 100 - 300</strong>
+                    </div>
+                    <div class="contact-options" id="kuccps-options">
+                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('KUCCPS Services')">
+                            📱 WhatsApp
+                        </button>
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('KUCCPS Services', '100-300')">
+                            💰 Pay via M-Pesa
+                        </button>
+                        <a href="mailto:info.falconkenya@gmail.com?subject=KUCCPS Services Assistance" class="contact-btn email-btn">
+                            📧 Email Us
+                        </a>
+                        <a href="tel:+254713587412" class="contact-btn call-btn">
+                            📞 Call Us
+                        </a>
+                    </div>
+                    <div class="payment-instructions" id="kuccps-payment">
+                        <div class="mpesa-logo"></div>
+                        <h4>M-Pesa Payment Instructions</h4>
+                        <div class="phone-number">
+                            <strong>0713 587 412</strong>
+                        </div>
+                        <ol class="payment-steps">
+                            <li>Go to M-Pesa on your phone</li>
+                            <li>Select <strong>Lipa Na M-Pesa</strong></li>
+                            <li>Select <strong>Send Money</strong></li>
+                            <li>Enter Till Number: <strong>0713587412</strong></li>
+                            <li>Amount: <strong>KSh 100-300</strong> (depending on service)</li>
+                            <li>Enter your M-Pesa PIN</li>
+                            <li>Send confirmation SMS to WhatsApp: 0713587412</li>
+                        </ol>
+                        <button class="contact-btn" onclick="hidePayment('kuccps')" style="background: #666;">Close</button>
+                    </div>
+                </div>
+
+                <!-- Career Services -->
+                <div class="service-card" onclick="toggleContactOptions('career')">
+                    <div class="service-icon">💼</div>
+                    <h3>Career Services</h3>
+                    <p>Professional CV writing, job applications, interview preparation</p>
+                    <div class="pricing">
+                        <strong>Service Fee: KSh 150 - 600</strong>
+                    </div>
+                    <div class="contact-options" id="career-options">
+                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('Career Services')">
+                            📱 WhatsApp
+                        </button>
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('Career Services', '300-600')">
+                            💰 Pay via M-Pesa
+                        </button>
+                        <a href="mailto:info.falconkenya@gmail.com?subject=Career Services Assistance" class="contact-btn email-btn">
+                            📧 Email Us
+                        </a>
+                        <a href="tel:+254713587412" class="contact-btn call-btn">
+                            📞 Call Us
+                        </a>
+                    </div>
+                    <div class="payment-instructions" id="career-payment">
+                        <div class="mpesa-logo"></div>
+                        <h4>M-Pesa Payment Instructions</h4>
+                        <div class="phone-number">
+                            <strong>0713 587 412</strong>
+                        </div>
+                        <ol class="payment-steps">
+                            <li>Go to M-Pesa on your phone</li>
+                            <li>Select <strong>Lipa Na M-Pesa</strong></li>
+                            <li>Select <strong>Send Money</strong></li>
+                            <li>Enter Till Number: <strong>0713587412</strong></li>
+                            <li>Amount: <strong>KSh 300-600</strong> (depending on service)</li>
+                            <li>Enter your M-Pesa PIN</li>
+                            <li>Send confirmation SMS to WhatsApp: 0713587412</li>
+                        </ol>
+                        <button class="contact-btn" onclick="hidePayment('career')" style="background: #666;">Close</button>
+                    </div>
+                </div>
+
+                <!-- Certificate Services -->
+                <div class="service-card" onclick="toggleContactOptions('certificate')">
+                    <div class="service-icon">📄</div>
+                    <h3>Certificate Services</h3>
+                    <p>Birth certificates, police clearance, marriage certificates</p>
+                    <div class="pricing">
+                        <strong>Service Fee: KSh 200 - 500</strong>
+                    </div>
+                    <div class="contact-options" id="certificate-options">
+                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('Certificate Services')">
+                            📱 WhatsApp
+                        </button>
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('Certificate Services', '200-500')">
+                            💰 Pay via M-Pesa
+                        </button>
+                        <a href="mailto:info.falconkenya@gmail.com?subject=Certificate Services Assistance" class="contact-btn email-btn">
+                            📧 Email Us
+                        </a>
+                        <a href="tel:+254713587412" class="contact-btn call-btn">
+                            📞 Call Us
+                        </a>
+                    </div>
+                    <div class="payment-instructions" id="certificate-payment">
+                        <div class="mpesa-logo"></div>
+                        <h4>M-Pesa Payment Instructions</h4>
+                        <div class="phone-number">
+                            <strong>0713 587 412</strong>
+                        </div>
+                        <ol class="payment-steps">
+                            <li>Go to M-Pesa on your phone</li>
+                            <li>Select <strong>Lipa Na M-Pesa</strong></li>
+                            <li>Select <strong>Send Money</strong></li>
+                            <li>Enter Till Number: <strong>0713587412</strong></li>
+                            <li>Amount: <strong>KSh 200-500</strong> (depending on service)</li>
+                            <li>Enter your M-Pesa PIN</li>
+                            <li>Send confirmation SMS to WhatsApp: 0713587412</li>
+                        </ol>
+                        <button class="contact-btn" onclick="hidePayment('certificate')" style="background: #666;">Close</button>
+                    </div>
+                </div>
+
+                <!-- Digital Services -->
+                <div class="service-card" onclick="toggleContactOptions('digital')">
+                    <div class="service-icon">🖥️</div>
+                    <h3>Digital Services</h3>
+                    <p>Email setup, social media, online applications, digital support</p>
+                    <div class="pricing">
+                        <strong>Service Fee: KSh 150 - 400</strong>
+                    </div>
+                    <div class="contact-options" id="digital-options">
+                        <button class="contact-btn whatsapp-btn" onclick="contactWhatsApp('Digital Services')">
+                            📱 WhatsApp
+                        </button>
+                        <button class="contact-btn mpesa-btn" onclick="showMpesaPayment('Digital Services', '150-400')">
+                            💰 Pay via M-Pesa
+                        </button>
+                        <a href="mailto:info.falconkenya@gmail.com?subject=Digital Services Assistance" class="contact-btn email-btn">
+                            📧 Email Us
+                        </a>
+                        <a href="tel:+254713587412" class="contact-btn call-btn">
+                            📞 Call Us
+                        </a>
+                    </div>
+                    <div class="payment-instructions" id="digital-payment">
+                        <div class="mpesa-logo"></div>
+                        <h4>M-Pesa Payment Instructions</h4>
+                        <div class="phone-number">
+                            <strong>0713 587 412</strong>
+                        </div>
+                        <ol class="payment-steps">
+                            <li>Go to M-Pesa on your phone</li>
+                            <li>Select <strong>Lipa Na M-Pesa</strong></li>
+                            <li>Select <strong>Send Money</strong></li>
+                            <li>Enter Till Number: <strong>0713587412</strong></li>
+                            <li>Amount: <strong>KSh 150-400</strong> (depending on service)</li>
+                            <li>Enter your M-Pesa PIN</li>
+                            <li>Send confirmation SMS to WhatsApp: 0713587412</li>
+                        </ol>
+                        <button class="contact-btn" onclick="hidePayment('digital')" style="background: #666;">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -591,14 +972,17 @@
             </div>
             <div class="payment-methods">
                 <div class="payment-method">
-                    <div class="payment-icon">💜</div>
+                    <div class="mpesa-logo" style="width: 80px; height: 80px; font-size: 1.1rem;"></div>
                     <h3>M-Pesa</h3>
                     <p>Fast and secure mobile payments</p>
-                    <div class="payment-instructions">
+                    <div class="payment-instructions" style="display: block; margin-top: 1rem;">
                         <h4>M-Pesa Payment:</h4>
+                        <div class="phone-number">
+                            <strong>0713 587 412</strong>
+                        </div>
                         <ol class="payment-steps">
                             <li>Lipa Na M-Pesa</li>
-                            <li>Buy Goods and Services</li>
+                            <li>Send Money</li>
                             <li>Till: <strong>0713587412</strong></li>
                             <li>Send confirmation via WhatsApp</li>
                         </ol>
@@ -653,7 +1037,8 @@
             <div style="text-align: center;">
                 <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>📱 WhatsApp:</strong> 0713 587 412</p>
                 <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>📧 Email:</strong> info.falconkenya@gmail.com</p>
-                <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>💜 M-Pesa:</strong> 0713 587 412</p>
+                <div class="mpesa-logo" style="display: inline-flex; width: 50px; height: 50px; font-size: 0.8rem; margin: 0 10px 1rem;"></div>
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>M-Pesa:</strong> 0713 587 412</p>
                 <p style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>📍 Location:</strong> Serving All of Kenya Online</p>
                 <a href="https://wa.me/254713587412" class="cta-button" style="background: #25D366; border-color: #25D366;">Message on WhatsApp</a>
                 <a href="mailto:info.falconkenya@gmail.com" class="cta-button">Send Email</a>
@@ -682,7 +1067,7 @@
                 <div>
                     <h3>Payment Methods</h3>
                     <ul style="list-style: none;">
-                        <li>💜 M-Pesa: 0713587412</li>
+                        <li><div class="mpesa-logo" style="display: inline-flex; width: 30px; height: 30px; font-size: 0.6rem; margin-right: 10px;"></div> M-Pesa: 0713587412</li>
                         <li>📱 WhatsApp Payments</li>
                         <li>🏦 Bank Transfer</li>
                     </ul>
@@ -690,7 +1075,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 Falcon's Online Cyber Services. All rights reserved. | Serving All of Kenya Online</p>
-                <p style="margin-top: 0.5rem; color: #9CA3AF;">Digital Solutions & Online Shopping - Your Trusted Partner in Kenya</p>
+                <p style="margin-top: 0.5rem; color: #94a3b8;">Digital Solutions & Online Shopping - Your Trusted Partner in Kenya</p>
             </div>
         </div>
     </footer>
@@ -712,7 +1097,9 @@
             });
             
             allPayments.forEach(payment => {
-                payment.style.display = 'none';
+                if (payment.id !== serviceId + '-payment') {
+                    payment.style.display = 'none';
+                }
             });
 
             // Toggle current service
